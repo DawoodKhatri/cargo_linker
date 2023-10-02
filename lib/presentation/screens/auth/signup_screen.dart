@@ -1,5 +1,7 @@
+import 'package:cargo_linker/logic/cubits/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -8,6 +10,8 @@ class SignupScreen extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final repasswordController = TextEditingController();
+
+  static const routeName = "signup";
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +85,9 @@ class SignupScreen extends StatelessWidget {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                    } else {
+                      BlocProvider.of<AuthCubit>(context)
+                          .emailVerify(emailController.text.trim());
                     }
                   },
                   child: const Text('Sign Up'),
@@ -94,7 +101,11 @@ class SignupScreen extends StatelessWidget {
                   const SizedBox(
                     width: 12,
                   ),
-                  TextButton(onPressed: () {}, child: const Text("Login"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text("Login"))
                 ],
               )
             ],

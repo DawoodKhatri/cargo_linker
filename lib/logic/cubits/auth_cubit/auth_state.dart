@@ -9,6 +9,8 @@ class AuthErrorState extends AuthState {
   AuthErrorState(this.message);
 }
 
+class AuthOTPVerificationState extends AuthState {}
+
 class AuthLoggedInState extends AuthState {}
 
 class AuthLoggedOutState extends AuthState {}

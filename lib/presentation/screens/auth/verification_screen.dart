@@ -1,10 +1,14 @@
+import 'package:cargo_linker/logic/cubits/auth_cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VerificationScreen extends StatelessWidget {
   VerificationScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
   final otpController = TextEditingController();
+
+  static const routeName = "otp_verification";
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +70,11 @@ class VerificationScreen extends StatelessWidget {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                    } else {
+                      BlocProvider.of<AuthCubit>(context).signup(
+                          "dawoodkhatri18@gmail.com",
+                          "password",
+                          otpController.text.trim());
                     }
                   },
                   child: const Text('Complete Signup'),
@@ -79,7 +88,11 @@ class VerificationScreen extends StatelessWidget {
                   const SizedBox(
                     width: 12,
                   ),
-                  TextButton(onPressed: () {}, child: const Text("Login"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                      child: const Text("Login"))
                 ],
               )
             ],
