@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-class VerificationScreen extends StatefulWidget {
-  @override
-  _VerificationScreenState createState() => _VerificationScreenState();
-}
+class VerificationScreen extends StatelessWidget {
+  VerificationScreen({super.key});
 
-class _VerificationScreenState extends State<VerificationScreen> {
   final _formKey = GlobalKey<FormState>();
-
-  final otpController = new TextEditingController();
+  final otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +20,23 @@ class _VerificationScreenState extends State<VerificationScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text("A 6-digit verification code was send on"),
-              SizedBox(
+              const Text("A 6-digit verification code was send on"),
+              const SizedBox(
                 height: 8,
               ),
-              Text("try@gmail.com"),
-              SizedBox(height: 8),
+              const Text("try@gmail.com"),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Incorrect Email?"),
-                  SizedBox(
+                  const Text("Incorrect Email?"),
+                  const SizedBox(
                     width: 12,
                   ),
-                  TextButton(onPressed: () {}, child: Text("Change"))
+                  TextButton(onPressed: () {}, child: const Text("Change"))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               TextFormField(
@@ -51,20 +47,20 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   labelText: 'OTP Verification',
                 ),
                 validator: (value) {
-                  if (value!.isEmpty) {
+                  if (value!.trim().isEmpty) {
                     return 'Please enter your OTP';
-                  } else if (value.length != 6) {
+                  } else if (value.trim().length != 6) {
                     return 'Please enter your 6 digit OTP';
                   }
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              Text("Resend OTP in 59s"),
-              TextButton(onPressed: () {}, child: Text("Resend OTP")),
-              SizedBox(height: 32),
+              const Text("Resend OTP in 59s"),
+              TextButton(onPressed: () {}, child: const Text("Resend OTP")),
+              const SizedBox(height: 32),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -72,18 +68,18 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       _formKey.currentState!.save();
                     }
                   },
-                  child: Text('Complete Signup'),
+                  child: const Text('Complete Signup'),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?"),
-                  SizedBox(
+                  const Text("Already have an account?"),
+                  const SizedBox(
                     width: 12,
                   ),
-                  TextButton(onPressed: () {}, child: Text("Login"))
+                  TextButton(onPressed: () {}, child: const Text("Login"))
                 ],
               )
             ],
