@@ -8,6 +8,11 @@ class AuthCubit extends Cubit<AuthState> {
 
   final _authRepository = AuthRepository();
   final _companyRepository = CompanyRepository();
+  late String _email;
+  late String _password;
+
+  String get email => _email;
+  String get password => _password;
 
   void authCheck() async {
     try {
@@ -19,11 +24,23 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void emailVerify(String email) async {
+  void emailVerify(String email, String password) async {
     try {
+      _email = email;
+      _password = password;
       emit(AuthLoadingState());
       await _companyRepository.companyEmailVerify(email);
       emit(AuthOTPVerificationState());
+    } catch (ex) {
+      emit(AuthErrorState(ex.toString()));
+    }
+  }
+
+  void resendEmailVerification() async {
+    try {
+      emit(AuthLoadingState());
+      await _companyRepository.companyEmailVerify(_email);
+      emit(AuthOTPVerificationState(isResend: true));
     } catch (ex) {
       emit(AuthErrorState(ex.toString()));
     }

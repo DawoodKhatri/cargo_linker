@@ -82,6 +82,28 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: BarlowCondensed
+      fonts: 
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Black.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-BlackItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Bold.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-BoldItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-ExtraBold.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-ExtraBoldItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-ExtraLight.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-ExtraLightItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Italic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Light.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-LightItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Medium.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-MediumItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Regular.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-SemiBold.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-SemiBoldItalic.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-Thin.ttf
+        - asset: fonts/BarlowCondensed/BarlowCondensed-ThinItalic.ttf
+
   # fonts:
   #   - family: Schyler
   #     fonts:
