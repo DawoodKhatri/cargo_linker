@@ -11,5 +11,6 @@ class AppThemes {
     useMaterial3: true,
     brightness: Brightness.light,
     colorSchemeSeed: AppColors.primary,
+    fontFamily: 'BarlowCondensed',
   );
 }
